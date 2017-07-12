@@ -1,7 +1,7 @@
 {
-  "name": "react-ellipsus",
+  "name": "ellipsus",
   "description": "",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "nooooru@gmail.com",
   "license": "MIT",
   "keywords": [
@@ -10,7 +10,7 @@
     "ellipsis",
     "text"
   ],
-  "main": "./dist/components/GearListChart.js",
+  "main": "./dist/components/Ellipsus.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/noru/ellipsus.git"
