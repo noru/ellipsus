@@ -80,8 +80,8 @@ var Ellipsus = function (_PureComponent) {
   }
 
   (0, _createClass3.default)(Ellipsus, [{
-    key: 'componentDidMount',
-    value: function componentDidMount() {
+    key: 'startAnimation',
+    value: function startAnimation() {
       var _this2 = this;
 
       var wrapperWidth = this.wrapper.offsetWidth;
@@ -108,6 +108,11 @@ var Ellipsus = function (_PureComponent) {
       }
     }
   }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.startAnimation();
+    }
+  }, {
     key: 'stopAnimation',
     value: function stopAnimation() {
       clearInterval(this.intervalId);
@@ -116,6 +121,12 @@ var Ellipsus = function (_PureComponent) {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       this.stopAnimation();
+    }
+  }, {
+    key: 'componentWillUpdate',
+    value: function componentWillUpdate() {
+      this.stopAnimation();
+      this.startAnimation();
     }
   }, {
     key: 'render',

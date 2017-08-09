@@ -26,8 +26,7 @@ export default class Ellipsus extends PureComponent {
     marginLeft: 0
   }
 
-  componentDidMount() {
-
+  startAnimation() {
     let wrapperWidth = this.wrapper.offsetWidth
     let contentWidth = this.content.offsetWidth
     let offset = wrapperWidth - contentWidth - 10 // add a little padding
@@ -49,14 +48,23 @@ export default class Ellipsus extends PureComponent {
         }
       }, this.props.interval )
     }
+  }
 
+  componentDidMount() {
+    this.startAnimation()
   }
 
   stopAnimation() {
     clearInterval(this.intervalId)
   }
+
   componentWillUnmount() {
     this.stopAnimation()
+  }
+
+  componentWillUpdate() {
+    this.stopAnimation()
+    this.startAnimation()
   }
 
   render() {

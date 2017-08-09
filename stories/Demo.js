@@ -8,21 +8,22 @@ export default class Demo extends Component {
     repeat: 10,
     duration: 2000,
     interval: 3000,
+    text: 'a really long long long text.........'
   }
 
 
   onChange = (evt) => {
     let name = evt.target.name
-    let value = +evt.target.value
+    let value = name === 'text' ? evt.target.value : +evt.target.value
     this.setState({ [name]: value })
     console.log(name + value);
   }
 
   render() {
-    let { repeat, duration, interval } = this.state
+    let { repeat, duration, interval, text } = this.state
     return (
       <div className="app">
-        <label>Repeat </label>
+        <label>Repeat</label>
         <DebounceInput
           name="repeat"
           value={repeat}
@@ -30,7 +31,7 @@ export default class Demo extends Component {
           onChange={this.onChange} />
         <br/>
 
-        <label>Duration </label>
+        <label>Duration</label>
         <DebounceInput
           name="duration"
           value={duration}
@@ -38,7 +39,7 @@ export default class Demo extends Component {
           onChange={this.onChange} />
         <br/>
 
-        <label>Interval </label>
+        <label>Interval</label>
         <DebounceInput
           name="interval"
           value={interval}
@@ -46,8 +47,16 @@ export default class Demo extends Component {
           onChange={this.onChange} />
         <br/>
 
-        <div style={{ width: '10em', marginTop: '2em', fontSize: '30px' }}>
-          <Ellipsus key={Math.random().toString()} repeat={repeat} duration={duration} interval={interval}>a really long long long text.........</Ellipsus>
+        <label>Text</label>
+        <DebounceInput
+          name="text"
+          value={text}
+          debounceTimeout={800}
+          onChange={this.onChange} />
+        <br/>
+
+        <div style={{ width: '10em', marginTop: '2em', fontSize: '30px', border: 'red 1px solid' }}>
+          <Ellipsus repeat={repeat} duration={duration} interval={interval}>{text}</Ellipsus>
         </div>
       </div>
     )
