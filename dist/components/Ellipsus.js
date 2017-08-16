@@ -9,6 +9,10 @@ var _extends2 = require('babel-runtime/helpers/extends');
 
 var _extends3 = _interopRequireDefault(_extends2);
 
+var _typeof2 = require('babel-runtime/helpers/typeof');
+
+var _typeof3 = _interopRequireDefault(_typeof2);
+
 var _getPrototypeOf = require('babel-runtime/core-js/object/get-prototype-of');
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
@@ -141,7 +145,7 @@ var Ellipsus = function (_PureComponent) {
 
 
       if (typeof children !== 'string') {
-        throw Error('Ellipsus: only string is allowed as "children"');
+        throw Error('Ellipsus: only string is allowed as children, got: ' + (typeof children === 'undefined' ? 'undefined' : (0, _typeof3.default)(children)));
       }
 
       duration = (duration / 1000).toFixed(2) || 2;

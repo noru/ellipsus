@@ -72,7 +72,7 @@ export default class Ellipsus extends PureComponent {
     let { marginLeft } = this.state
 
     if (typeof children !== 'string') {
-      throw Error('Ellipsus: only string is allowed as "children"')
+      throw Error('Ellipsus: only string is allowed as children, got: ' + typeof children)
     }
 
     duration = (duration / 1000).toFixed(2) || 2
