@@ -47,7 +47,7 @@ var Styles = {
 
   wrapper: {
     display: 'inline-block',
-    overflow: 'hidden',
+    overflowX: 'hidden',
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
     width: '100%'
