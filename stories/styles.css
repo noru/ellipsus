@@ -5,3 +5,14 @@ label {
   text-align: right;
   margin-right: 1em;
 }
+
+.stage {
+  padding: 2em;
+}
+
+.showcase {
+  width: 10em;
+  margin-bottom: 1em;
+  font-size: 30px;
+  border: 1px red solid;
+}

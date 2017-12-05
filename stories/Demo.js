@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import DebounceInput from 'react-debounce-input'
 import Ellipsus from '../src/components/Ellipsus'
+import Flyby from '../src/components/Flyby'
 
 export default class Demo extends Component {
 
@@ -55,9 +56,17 @@ export default class Demo extends Component {
           onChange={this.onChange} />
         <br/>
 
-        <div style={{ width: '10em', marginTop: '2em', fontSize: '30px', border: 'red 1px solid' }}>
-          <Ellipsus repeat={repeat} duration={duration} interval={interval}>{text}</Ellipsus>
+        <div className="stage">
+          <div style={{ marginTop: '2em' }}>Ellipsus</div>
+          <div className="showcase">
+            <Ellipsus repeat={repeat} duration={duration} interval={interval}>{text}</Ellipsus>
+          </div>
+          <div>Flyby</div>
+          <div className="showcase">
+            <Flyby repeat={repeat} duration={duration} interval={interval}>{text}</Flyby>
+          </div>
         </div>
+
       </div>
     )
   }

@@ -8,10 +8,10 @@
 Actively maintained. Welcome to PR/Issue.  🤡👉 [Demo](https://noru.github.io/ellipsus/storybook-static/index.html) 👈🤡
 
 
-## Instal
+## Install
 
 ```
-npm install ellipsus
+npm install --save ellipsus
 ```
 
 ## Usage
@@ -29,6 +29,11 @@ import Ellipsus from 'ellipsus'
 <Ellipsus repeat={repeat} duration={duration} interval={interval}>
   a really long long long text.........
 </Ellipsus>
+
+// Flyby text
+<Flyby repeat={repeat} duration={duration} interval={interval}>
+  a really long long long text.........
+</Flyby>
 
 ```
 
