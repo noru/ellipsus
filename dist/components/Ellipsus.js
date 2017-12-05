@@ -78,59 +78,68 @@ var Ellipsus = function (_PureComponent) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = Ellipsus.__proto__ || (0, _getPrototypeOf2.default)(Ellipsus)).call.apply(_ref, [this].concat(args))), _this), _this.state = {
+    return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = Ellipsus.__proto__ || (0, _getPrototypeOf2.default)(Ellipsus)).call.apply(_ref, [this].concat(args))), _this), _this._intervalId = null, _this.state = {
       marginLeft: 0
     }, _temp), (0, _possibleConstructorReturn3.default)(_this, _ret);
   }
 
   (0, _createClass3.default)(Ellipsus, [{
     key: 'startAnimation',
-    value: function startAnimation() {
+    value: function startAnimation(_ref2) {
       var _this2 = this;
+
+      var interval = _ref2.interval,
+          repeat = _ref2.repeat,
+          duration = _ref2.duration,
+          flyThrough = _ref2.flyThrough;
+      var _state = this.state,
+          marginLeft = _state.marginLeft,
+          visibility = _state.visibility;
 
       var wrapperWidth = this.wrapper.offsetWidth;
       var contentWidth = this.content.offsetWidth;
-      var offset = wrapperWidth - contentWidth - 10; // add a little padding
 
-      var marginLeft = this.state.marginLeft;
-      var repeat = this.props.repeat;
-
+      if (repeat === 0) {
+        repeat = Infinity;
+      }
       var count = 0;
       var trips = repeat * 2;
+      var offset = wrapperWidth - contentWidth - 10; // add a little padding
 
       if (offset < -20) {
-        this.intervalId = setInterval(function () {
+        this._intervalId = setInterval(function () {
 
           marginLeft = marginLeft === 0 ? offset : 0;
           _this2.setState({ marginLeft: marginLeft });
 
           if (++count >= trips) {
-            clearInterval(_this2.intervalId);
             _this2.stopAnimation();
           }
-        }, this.props.interval);
+        }, interval + duration);
       }
-    }
-  }, {
-    key: 'componentDidMount',
-    value: function componentDidMount() {
-      this.startAnimation();
     }
   }, {
     key: 'stopAnimation',
     value: function stopAnimation() {
-      clearInterval(this.intervalId);
+      clearInterval(this._intervalId);
+      this._intervalId = null;
+      this.setState({ marginLeft: 0 });
+    }
+  }, {
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      this.startAnimation(this.props);
+    }
+  }, {
+    key: 'componentWillReceiveProps',
+    value: function componentWillReceiveProps(newProps) {
+      this.stopAnimation();
+      this.startAnimation(newProps);
     }
   }, {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       this.stopAnimation();
-    }
-  }, {
-    key: 'componentWillUpdate',
-    value: function componentWillUpdate() {
-      this.stopAnimation();
-      this.startAnimation();
     }
   }, {
     key: 'render',
@@ -140,8 +149,12 @@ var Ellipsus = function (_PureComponent) {
       var _props = this.props,
           children = _props.children,
           className = _props.className,
-          duration = _props.duration;
-      var marginLeft = this.state.marginLeft;
+          duration = _props.duration,
+          flyThrough = _props.flyThrough;
+      var _state2 = this.state,
+          marginLeft = _state2.marginLeft,
+          visibility = _state2.visibility,
+          textOverflow = _state2.textOverflow;
 
 
       if (typeof children !== 'string') {
@@ -152,14 +165,22 @@ var Ellipsus = function (_PureComponent) {
 
       return _react2.default.createElement(
         'span',
-        { className: 'ellipsus-wrapper ' + className, style: Styles.wrapper, ref: function ref(r) {
+        {
+          className: 'ellipsus-wrapper ' + (className || ''),
+          style: (0, _extends3.default)({}, Styles.wrapper),
+          ref: function ref(r) {
             return _this3.wrapper = r;
-          } },
+          }
+        },
         _react2.default.createElement(
           'span',
-          { className: 'ellipsus-content', style: (0, _extends3.default)({}, Styles.content(duration), { marginLeft: marginLeft }), ref: function ref(r) {
+          {
+            className: 'ellipsus-content',
+            style: (0, _extends3.default)({}, Styles.content(duration), { marginLeft: marginLeft }),
+            ref: function ref(r) {
               return _this3.content = r;
-            } },
+            }
+          },
           children
         )
       );
