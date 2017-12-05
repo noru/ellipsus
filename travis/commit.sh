@@ -14,6 +14,7 @@ commit_dist_files() {
 push_files() {
   git remote add github https://$GH_TOKEN@github.com/$TRAVIS_REPO_SLUG
   git push -u github master
+  npm publish ./
 }
 
 setup_git
