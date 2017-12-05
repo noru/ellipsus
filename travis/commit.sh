@@ -6,7 +6,8 @@ setup_git() {
 }
 
 commit_dist_files() {
-  git reset --soft origin/master
+  git checkout master
+  npm run build
   NPM_VER=$(npm version patch --no-git-tag-version)
   git add -A
   git commit -m "Travis build $TRAVIS_BUILD_NUMBER: $NPM_VER [ci skip]"
