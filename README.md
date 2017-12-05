@@ -1,5 +1,8 @@
 # A Text Ellipsis Component for React
 
+[![Build Status](https://travis-ci.org/noru/ellipsus.svg?branch=master)](https://travis-ci.org/noru/ellipsus)
+[![npm version](https://badge.fury.io/js/ellipsus.svg)](https://badge.fury.io/js/ellipsus)
+
 ![sample](./sample.gif)
 
 Actively maintained. Welcome to PR/Issue.  🤡👉 [Demo](https://noru.github.io/ellipsus/storybook-static/index.html) 👈🤡

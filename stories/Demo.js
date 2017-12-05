@@ -5,10 +5,10 @@ import Ellipsus from '../src/components/Ellipsus'
 export default class Demo extends Component {
 
   state = {
-    repeat: 10,
+    repeat: 5,
     duration: 2000,
-    interval: 3000,
-    text: 'a really long long long text.........'
+    interval: 1000,
+    text: 'a really long long long text.........!'
   }
 
 
@@ -16,7 +16,7 @@ export default class Demo extends Component {
     let name = evt.target.name
     let value = name === 'text' ? evt.target.value : +evt.target.value
     this.setState({ [name]: value })
-    console.log(name + value);
+    console.log(name + ' ' + value)
   }
 
   render() {
