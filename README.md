@@ -1,7 +1,7 @@
 # A Text Ellipsis Component for React
 
 [![Build Status](https://travis-ci.org/noru/ellipsus.svg?branch=master)](https://travis-ci.org/noru/ellipsus)
-[![npm version](https://badge.fury.io/js/ellipsus.svg)](https://badge.fury.io/js/ellipsus)
+[![npm version](https://img.shields.io/npm/v/ellipsus.svg)](https://www.npmjs.com/package/ellipsus)
 
 ![sample](./sample.gif)
 
