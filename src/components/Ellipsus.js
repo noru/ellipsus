@@ -9,6 +9,7 @@ const Styles = {
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
     width: '100%',
+    textAlign: 'left',
   },
 
   content: sec => ({
@@ -20,7 +21,7 @@ const Styles = {
 
 }
 
-export default class Ellipsus extends PureComponent {
+export class Ellipsus extends PureComponent {
 
   _intervalId = null
 
@@ -112,3 +113,5 @@ Ellipsus.propTypes = {
   duration: PropTypes.number,
   repeat: PropTypes.number,
 }
+
+export default Ellipsus

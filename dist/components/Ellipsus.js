@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = undefined;
+exports.Ellipsus = undefined;
 
 var _extends2 = require('babel-runtime/helpers/extends');
 
@@ -50,7 +50,8 @@ var Styles = {
     overflowX: 'hidden',
     textOverflow: 'ellipsis',
     whiteSpace: 'nowrap',
-    width: '100%'
+    width: '100%',
+    textAlign: 'left'
   },
 
   content: function content(sec) {
@@ -64,7 +65,7 @@ var Styles = {
 
 };
 
-var Ellipsus = function (_PureComponent) {
+var Ellipsus = exports.Ellipsus = function (_PureComponent) {
   (0, _inherits3.default)(Ellipsus, _PureComponent);
 
   function Ellipsus() {
@@ -189,9 +190,6 @@ var Ellipsus = function (_PureComponent) {
   return Ellipsus;
 }(_react.PureComponent);
 
-exports.default = Ellipsus;
-
-
 Ellipsus.defaultProps = {
   interval: 3000,
   duration: 2000,
@@ -203,3 +201,5 @@ Ellipsus.propTypes = {
   duration: _propTypes2.default.number,
   repeat: _propTypes2.default.number
 };
+
+exports.default = Ellipsus;

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import DebounceInput from 'react-debounce-input'
-import Ellipsus from '../src/components/Ellipsus'
-import Flyby from '../src/components/Flyby'
+import Ellipsus, { Flyby } from '../src/components'
 
 export default class Demo extends Component {
 

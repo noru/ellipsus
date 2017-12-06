@@ -9,6 +9,7 @@ const Styles = {
     textOverflow: 'hidden',
     whiteSpace: 'nowrap',
     width: '100%',
+    textAlign: 'left',
   },
 
   content: sec => ({
@@ -20,7 +21,7 @@ const Styles = {
 
 }
 
-export default class Flyby extends PureComponent {
+export class Flyby extends PureComponent {
 
   _timeoutId = null
 
@@ -116,3 +117,5 @@ Flyby.propTypes = {
   duration: PropTypes.number,
   repeat: PropTypes.number,
 }
+
+export default Flyby

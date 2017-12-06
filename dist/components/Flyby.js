@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = undefined;
+exports.Flyby = undefined;
 
 var _extends2 = require('babel-runtime/helpers/extends');
 
@@ -50,7 +50,8 @@ var Styles = {
     overflowX: 'hidden',
     textOverflow: 'hidden',
     whiteSpace: 'nowrap',
-    width: '100%'
+    width: '100%',
+    textAlign: 'left'
   },
 
   content: function content(sec) {
@@ -64,7 +65,7 @@ var Styles = {
 
 };
 
-var Flyby = function (_PureComponent) {
+var Flyby = exports.Flyby = function (_PureComponent) {
   (0, _inherits3.default)(Flyby, _PureComponent);
 
   function Flyby() {
@@ -189,9 +190,6 @@ var Flyby = function (_PureComponent) {
   return Flyby;
 }(_react.PureComponent);
 
-exports.default = Flyby;
-
-
 Flyby.defaultProps = {
   interval: 3000,
   duration: 2000,
@@ -203,3 +201,5 @@ Flyby.propTypes = {
   duration: _propTypes2.default.number,
   repeat: _propTypes2.default.number
 };
+
+exports.default = Flyby;
