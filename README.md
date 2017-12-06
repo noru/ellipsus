@@ -18,7 +18,7 @@ npm install --save ellipsus
 
 ```html
 
-import Ellipsus from 'ellipsus'
+import Ellipsus, { Flyby } from 'ellipsus'
 
 // in your render() or whatever
 <Ellipsus>
