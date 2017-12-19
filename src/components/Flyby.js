@@ -30,7 +30,12 @@ export class Flyby extends PureComponent {
     duration: 0,
   }
 
-  startAnimation({ interval, repeat, duration, flyThrough }) {
+  startAnimation({ interval, repeat, duration, flyThrough, children }) {
+
+    if (!children) {
+      this.stopAnimation()
+      return
+    }
 
     let { marginLeft } = this.state
 
