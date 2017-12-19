@@ -93,7 +93,15 @@ var Flyby = exports.Flyby = function (_PureComponent) {
       var interval = _ref2.interval,
           repeat = _ref2.repeat,
           duration = _ref2.duration,
-          flyThrough = _ref2.flyThrough;
+          flyThrough = _ref2.flyThrough,
+          children = _ref2.children;
+
+
+      if (!children) {
+        this.stopAnimation();
+        return;
+      }
+
       var marginLeft = this.state.marginLeft;
 
 
