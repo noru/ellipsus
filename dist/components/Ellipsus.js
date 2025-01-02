@@ -158,8 +158,14 @@ var Ellipsus = exports.Ellipsus = function (_PureComponent) {
           textOverflow = _state2.textOverflow;
 
 
+      if (children === null || children === undefined) {
+        return null;
+      }
+      if (typeof children === 'number') {
+        children = String(children);
+      }
       if (typeof children !== 'string') {
-        throw Error('Ellipsus: only string is allowed as children, got: ' + (typeof children === 'undefined' ? 'undefined' : (0, _typeof3.default)(children)));
+        throw Error('Ellipsus: only string/number is allowed as children, got: ' + (typeof children === 'undefined' ? 'undefined' : (0, _typeof3.default)(children)));
       }
 
       duration = (duration / 1000).toFixed(2) || 2;

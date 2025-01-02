@@ -78,8 +78,14 @@ export class Ellipsus extends PureComponent {
     let { children, className, duration, flyThrough } = this.props
     let { marginLeft, visibility, textOverflow } = this.state
 
+    if (children === null || children === undefined) {
+      return null
+    }
+    if (typeof children === 'number') {
+      children = String(children)
+    }
     if (typeof children !== 'string') {
-      throw Error('Ellipsus: only string is allowed as children, got: ' + typeof children)
+      throw Error('Ellipsus: only string/number is allowed as children, got: ' + typeof children)
     }
 
     duration = (duration / 1000).toFixed(2) || 2
